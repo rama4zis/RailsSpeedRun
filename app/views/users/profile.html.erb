@@ -1,0 +1,22 @@
+<div class="col-md-5 mx-auto my-5 d-grid justify-content-center">
+    <div class="profile-image-wrap">
+
+        <img src="/user_images/default.jpg" alt="" class="img-thumbnail">
+    </div>
+    <h2 class="text-center">
+        <%= @current_user.username %>
+    </h2>
+
+    
+</div>
+
+<style>
+    .profile-image-wrap {
+        width: 150px;
+        height: 150px;
+        background-color: #f5f5f5;
+        border: #f5f5f5 solid 5px ;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+</style>
