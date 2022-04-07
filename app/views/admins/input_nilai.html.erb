@@ -1,0 +1,59 @@
+<div class="col-md-5 my-5 mx-auto">
+
+    <%= form_with url: '/admin/insert-nilai', method: :post do |form| %>
+        <div class="row mb-3">
+            <label for="siswa_id" class="col-sm-4 col-form-label">Siswa ID</label>
+            <div class="col-sm-8">
+                <input type="number" class="form-control" id="siswa_id" name="siswa_id">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="date" class="col-sm-4 col-form-label">Date</label>
+            <div class="col-sm-8">
+                <input type="date" class="form-control" id="date" name="date">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="semester" class="col-sm-4 col-form-label">Semester</label>
+            <div class="col-sm-8">
+                <input type="number" class="form-control" id="semester" name="semester">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="mapel_id" class="col-sm-4 col-form-label">Mata Pelajaran</label>
+            <div class="col-sm-8">
+                <select id="mapel_id" class="custom-select custom-select-sm" name="mapel_id">
+                    <option selected>Open this select menu</option>
+                    <option value="bi">Bahasa Indonesia</option>
+                    <option value="mtk">Matematika</option>
+                    <option value="bing">Bahasa Inggris</option>
+                    <option value="ipa">IPA</option>
+                    <option value="ips">IPS</option>
+                    <option value="pkn">PKN</option>
+                    <option value="agama">Agama</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="jenis" class="col-sm-4 col-form-label">Jenis Nilai</label>
+            <div class="col-sm-8">
+                <select id="jenis" class="custom-select custom-select-sm" name="jenis">
+                    <option selected>Open this select menu</option>
+                    <option value="tugas">Tugas</option>
+                    <option value="quiz">Quiz</option>
+                    <option value="uts">UTS</option>
+                    <option value="uas">UAS</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="nilai" class="col-sm-4 col-form-label">Nilai</label>
+            <div class="col-sm-8">
+                <input type="number" class="form-control" id="nilai" name="nilai">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+    <% end %>
+</div>

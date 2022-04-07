@@ -14,4 +14,17 @@ Rails.application.routes.draw do
   post '/user/signin', to: 'users#signin'
   get '/user/logout', to: 'users#logout'
   get '/user/profile', to: 'users#profile'
+  get '/user/edit', to: 'users#edit'
+  post '/user/update', to: 'users#update'
+  delete '/user/delete', to: 'users#delete'
+
+  get '/siswa/index', to: 'users#index'
+
+  # admin 
+  get '/admin/login', to: 'admins#login'
+  post '/admin/signin', to: 'admins#signin'
+  get '/admin/logout', to: 'admins#logout'
+  get '/admin/profile', to: 'admins#profile'
+  get '/admin/input-nilai', to: 'admins#input_nilai'
+  post '/admin/insert-nilai', to: 'admins#insert_nilai'
 end

@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+    def index 
+        @users = User.all
+    end
+
     def signin
         @user = User.find_by(username: params[:username], password: params[:password])
         if @user
@@ -14,7 +19,9 @@ class UsersController < ApplicationController
     def new
         @user = User.new(email: params[:email], username: params[:username], password: params[:password])
         if @user.save
-            redirect_to '/user/login'
+            session[:user_id] = @user.id
+            flash[:success] = "Welcome #{@user.username}"
+            redirect_to '/'
         else
             redirect_to '/user/register'
         end

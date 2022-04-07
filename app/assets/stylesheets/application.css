@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+ :root {
+     --bg-dark-mode: #3a3a3a;
+        --text-dark-mode: #fff;
+
+     --bg-light-mode: #fff;
+        --text-light-mode: #000;
+ }
+
+ body {
+    background-color: var(--bg-dark-mode) !important;
+    color: var(--text-dark-mode) !important;
+ }

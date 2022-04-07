@@ -1,2 +1,9 @@
+<!-- make alert show flash notice  -->
+<% if flash[:success] %>
+    <div class="alert alert-success mt-5" role="alert">
+        <%= flash[:success] %>
+    </div>
+<% end %>
+
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>

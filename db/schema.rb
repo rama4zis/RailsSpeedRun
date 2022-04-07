@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_07_155912) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_07_230750) do
+  create_table "admins", force: :cascade do |t|
+    t.string "email"
+    t.string "username"
+    t.string "name"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courses", primary_key: "mapel_id", id: :string, force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "evaluations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "guru_id"
+    t.date "date"
+    t.string "semester"
+    t.integer "mapel_id"
+    t.integer "nilai"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "username"
