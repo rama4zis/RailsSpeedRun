@@ -31,4 +31,14 @@ class UsersController < ApplicationController
         session[:user_id] = nil
         redirect_to '/'
     end
+
+    def edit
+        @current_user = User.find(params[:id])
+        @evaluations = @current_user.evaluations
+    end
+
+    def show_evaluation
+        @user = @current_user
+        @evaluations = @user.evaluations
+    end
 end

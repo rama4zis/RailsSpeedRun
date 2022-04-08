@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/user/edit', to: 'users#edit'
   post '/user/update', to: 'users#update'
   delete '/user/delete', to: 'users#delete'
+  get '/user/profile/evaluation', to: 'users#show_evaluation'
 
   get '/siswa/index', to: 'users#index'
 
@@ -26,5 +27,7 @@ Rails.application.routes.draw do
   get '/admin/logout', to: 'admins#logout'
   get '/admin/profile', to: 'admins#profile'
   get '/admin/input-nilai', to: 'admins#input_nilai'
+  get '/admin/edit-nilai', to: 'admins#edit_nilai', as: 'edit_nilai'
+  put '/admin/update-nilai', to: 'admins#update_nilai', as: 'update_nilai'
   post '/admin/insert-nilai', to: 'admins#insert_nilai'
 end

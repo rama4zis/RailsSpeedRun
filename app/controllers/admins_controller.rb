@@ -23,8 +23,27 @@ class AdminsController < ApplicationController
     end
     
     def insert_nilai
-        @score = Evaluation.new( user_id: params[:user_id], guru_id: @current_admin.id, date: params[:date], semester: params[:semester], mapel_id: params[:mapel_id], nilai: params[:nilai] )
+        @nilai = Evaluation.new( user_id: params[:user_id], guru_id: @current_admin.id, date: params[:date], semester: params[:semester], mapel_code: params[:mapel_code], nilai: params[:nilai] )
+        if @nilai.save
+            flash[:success] = "Nilai berhasil diinput"
+            redirect_to '/admin/input-nilai'
+        else
+            flash[:danger] = "Nilai gagal diinput"
+            redirect_to '/admin/input-nilai'
+        end
     end
+
+    def edit_nilai
+        @evaluation = Evaluation.find(params[:id])
+    end
+
+    def update_nilai
+        @evaluation = Evaluation.find(params[:id])
+        @evaluation.update( user_id: params[:user_id], guru_id: @current_admin.id, date: params[:date], semester: params[:semester], mapel_code: params[:mapel_code], nilai: params[:nilai] )
+        flash[:success] = "Nilai berhasil diupdate"
+        redirect_to user_edit_path(id: @evaluation.user_id)
+    end
+
 
 
 

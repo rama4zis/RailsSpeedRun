@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_07_230750) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_07_235619) do
   create_table "admins", force: :cascade do |t|
     t.string "email"
     t.string "username"
@@ -20,7 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_230750) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "courses", primary_key: "mapel_id", id: :string, force: :cascade do |t|
+  create_table "courses", id: false, force: :cascade do |t|
+    t.string "mapel_code", null: false
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,10 +32,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_230750) do
     t.integer "guru_id"
     t.date "date"
     t.string "semester"
-    t.integer "mapel_id"
     t.integer "nilai"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "mapel_code"
+    t.string "jenis"
   end
 
   create_table "users", force: :cascade do |t|

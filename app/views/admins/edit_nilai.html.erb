@@ -1,6 +1,6 @@
 <div class="col-md-5 my-5 mx-auto">
 
-    <%= form_with url: '/admin/insert-nilai', method: :post do |form| %>
+    <%= form_with url: update_nilai_path(:id => @evaluation.id), method: :put do |form| %>
     <% if flash[:success] %>
     <div class="alert alert-success" role="alert">
         <%= flash[:success] %>
@@ -13,24 +13,25 @@
     <div class="row mb-3">
         <label for="user_id" class="col-sm-4 col-form-label">Siswa ID</label>
         <div class="col-sm-8">
-            <input type="number" class="form-control" id="user_id" name="user_id">
+            <input type="number" class="form-control" id="user_id" name="user_id" value="<%= @evaluation.user_id %>">
         </div>
     </div>
     <div class="row mb-3">
         <label for="date" class="col-sm-4 col-form-label">Date</label>
         <div class="col-sm-8">
-            <input type="date" class="form-control" id="date" name="date">
+            <input type="date" class="form-control" id="date" name="date" value="<%= @evaluation.date %>">
         </div>
     </div>
     <div class="row mb-3">
         <label for="semester" class="col-sm-4 col-form-label">Semester</label>
         <div class="col-sm-8">
-            <input type="number" class="form-control" id="semester" name="semester">
+            <input type="number" class="form-control" id="semester" name="semester" value="<%= @evaluation.semester %>">
         </div>
     </div>
     <div class="row mb-3">
         <label for="mapel_code" class="col-sm-4 col-form-label">Mata Pelajaran</label>
         <div class="col-sm-8">
+            <input type="text" id="mapelCodeSelecter" value="<%= @evaluation.mapel_code %>" hidden>
             <select id="mapel_code" class="custom-select custom-select-sm" name="mapel_code">
                 <option selected>Open this select menu</option>
                 <option value="bi">Bahasa Indonesia</option>
@@ -46,6 +47,7 @@
     <div class="row mb-3">
         <label for="jenis" class="col-sm-4 col-form-label">Jenis Nilai</label>
         <div class="col-sm-8">
+            <input type="text" id="jenisSelected" value="<%= @evaluation.jenis %>" hidden>
             <select id="jenis" class="custom-select custom-select-sm" name="jenis">
                 <option selected>Open this select menu</option>
                 <option value="tugas">Tugas</option>
@@ -59,10 +61,23 @@
     <div class="row mb-3">
         <label for="nilai" class="col-sm-4 col-form-label">Nilai</label>
         <div class="col-sm-8">
-            <input type="number" class="form-control" id="nilai" name="nilai">
+            <input type="number" class="form-control" id="nilai" name="nilai" value="<%= @evaluation.nilai %>">
         </div>
     </div>
 
+    <div class="text-center">
     <button type="submit" class="btn btn-primary">SUBMIT</button>
+    </div>
     <% end %>
 </div>
+
+<script>
+    const jenisValue = document.getElementById('jenisSelected').value;
+    const mapelValue = document.getElementById('mapelCodeSelecter').value;
+    console.log(mapelValue);
+
+    // Find the option in the select that has the same value as
+    // the query string value and make it be selected
+    document.getElementById("jenis").querySelector("option[value='" + jenisValue + "']").selected = true;
+    document.getElementById("mapel_code").querySelector("option[value='" + mapelValue + "']").selected = true;
+</script>
