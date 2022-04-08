@@ -15,8 +15,8 @@
         <td><%= user.username %></td>
         <td><%= user.email %></td>
         <td>
-          <%= link_to 'Edit', user_edit_path(:user_id => user.id), class: 'btn btn-secondary' %>
-          <%= link_to 'Delete', user_delete_path, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Edit', user_edit_path(:id => user.id), class: 'btn btn-secondary' %>
+          
         </td>
 
       </tr>
