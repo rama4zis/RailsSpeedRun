@@ -8,5 +8,6 @@ class CreateAdmins < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    Admin.new(email: "admin", username: "admin", name: "PenguasaAir", password: "admin").save
   end
 end
